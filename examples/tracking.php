@@ -14,7 +14,10 @@ include_once '../vendor/autoload.php';
 // gives you a JavaScript tracking snippet that you can print in your HTML website to let Piwik know
 // that you just activated a specific variation. This is useful when you track your visitors via Piwik
 // with the regular JavaScript tracking code and just activated an experiment server side.
-$script = Experiment::getTrackingScript('myExperimentName', 'myVariationName');
+$experiment = new Experiment('myExperimentName', [['name' => 'myVariationName']]);
+$activatedVariation = $experiment->getActivatedVariation();
+// important: you should escape the passed experiment name and variation name if needed to prevent XSS.
+$script = $experiment->getTrackingScript($experiment->getExperimentName(), $activatedVariation->getName());
 echo $script; // prints eg "<script>_paq.push(['AbTesting::enter', {...}])"
 
 
@@ -23,19 +26,7 @@ echo $script; // prints eg "<script>_paq.push(['AbTesting::enter', {...}])"
 // know you just activated an experiment.
 if (class_exists('\PiwikTracker')) {
     $tracker = new \PiwikTracker($idSite = 1, $apiUrl = 'https://piwik.example.com');
-    Experiment::trackVariationActivation($tracker, 'myExperimentName', 'myVariationName');
+    $experiment = new Experiment('myExperimentName', [['name' => 'myVariationName']]);
+    $activatedVariation = $experiment->getActivatedVariation();
+    $experiment->trackVariationActivation($tracker);
 }
-
-
-// full example:
-$variations = [['name' => 'green'], ['name' => 'blue']];
-$experiment = new Experiment('experimentName', $variations);
-
-// to get a randomly activated variation or a previously forced variation call "getActivatedVariation"
-$activated = $experiment->getActivatedVariation();
-
-$script = Experiment::getTrackingScript($experiment->getExperimentName(), $activated->getName());
-echo $script; // prints eg "<script ...>_paq.push(['AbTesting::enter', {...}])"
-
-// OR
-Experiment::trackVariationActivation($tracker, $experiment->getExperimentName(), $activated->getName());

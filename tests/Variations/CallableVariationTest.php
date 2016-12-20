@@ -35,6 +35,18 @@ class CallableVariationTest extends StandardVariationTest {
         $this->assertSame(1, $called);
     }
 
+    public function test_run_passedVariationAsArgument()
+    {
+        $called = null;
+        $variation = $this->buildCallableVariation(function ($passedVariation) use (&$called) {
+            $called = $passedVariation;
+        });
+        $variation->run();
+
+        $this->assertSame($called, $variation);
+        $this->assertSame($called->getName(), $variation->getName());
+    }
+
     public function test_run_doesNotFail_IfCallableIsNotActuallyCallable()
     {
         $variation = $this->buildCallableVariation('fooBarBaz');
