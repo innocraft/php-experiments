@@ -28,7 +28,9 @@ websites and apps in over 150 countries. [InnoCraft](https://www.innocraft.com) 
 
 ## Example
 
-See [examples](examples) directory for various examples. Running an experiment might be as easy as:
+See [examples](examples) directory for various examples. 
+
+Running an A/B test might be as easy as:
 
 ```php
 $variations = [['name' => 'green'], ['name' => 'blue']];
@@ -36,6 +38,20 @@ $experiment = new Experiment('experimentName', $variations);
 $activated = $experiment->getActivatedVariation();
 
 echo $activated->getName();
+```
+
+Running a split test can be as easy as:
+
+```php
+$variations = [
+    ['name' => 'layout1', 'url' => '/layout1'], 
+    ['name' => 'layout2', 'url' => '/layout2']
+];
+$experiment = new Experiment('experimentName', $variations);
+$activated = $experiment->getActivatedVariation();
+
+// redirects to either URL or does nothing if the original version was activated
+$activated->run();
 ```
 
 ## Requirements
