@@ -1,0 +1,24 @@
+{
+    "name": "innocraft/php-experiments",
+    "description": "PHP Experiments is a library that lets you run A/B and split tests",
+    "keywords": ["a-b", "testing", "split", "tests", "experiments"],
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "InnoCraft Ltd",
+            "email": "contact@innocraft.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+		"php": ">=5.5.9"
+    },
+	"require-dev": {
+		"phpunit/phpunit": "5.2.*"
+    },
+	"autoload": {
+        "psr-4": {
+            "InnoCraft\\Experiments\\": "src/"
+        }
+    }
+}
