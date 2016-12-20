@@ -62,7 +62,7 @@ class SplitTestVariation extends StandardVariation {
             // were already sent so should be fine for now
             $url = $this->getUrlWithExperimentParameters();
             header('Location: ' . $url, true, 302);
-            exit();
+            exit;
         }
     }
 }
