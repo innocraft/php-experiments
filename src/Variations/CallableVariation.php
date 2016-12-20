@@ -10,6 +10,10 @@ namespace InnoCraft\Experiments\Variations;
 
 class CallableVariation extends StandardVariation {
 
+    /**
+     * Returns a callable if the option was passed.
+     * @return callable
+     */
     public function getCallable()
     {
         if (isset($this->variation['callable'])) {

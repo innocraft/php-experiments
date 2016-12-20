@@ -41,7 +41,7 @@ $activated = $experiment->getActivatedVariation();
 echo $activated->getName();
 ```
 
-Running a split test can be as easy as:
+Running a split URL test can be as easy as:
 
 ```php
 $variations = [

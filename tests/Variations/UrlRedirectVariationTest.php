@@ -1,10 +1,10 @@
 <?php
 
-use InnoCraft\Experiments\Variations\SplitTestVariation;
+use InnoCraft\Experiments\Variations\UrlRedirectVariation;
 
 include_once 'StandardVariationTest.php';
 
-class SplitTestVariationTest extends StandardVariationTest {
+class UrlRedirectVariationTest extends StandardVariationTest {
 
     private $experimentName = 'myExperimentName';
     private $variationName = 'myName';
@@ -56,7 +56,7 @@ class SplitTestVariationTest extends StandardVariationTest {
 
     private function makeVariation($variation)
     {
-        return new SplitTestVariation($this->experimentName, $variation);
+        return new UrlRedirectVariation($this->experimentName, $variation);
     }
 
 }

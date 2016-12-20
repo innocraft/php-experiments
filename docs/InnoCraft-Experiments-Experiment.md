@@ -155,7 +155,7 @@ Get the set storage.
 
 ### trackVariationActivation
 
-    mixed InnoCraft\Experiments\Experiment::trackVariationActivation(\stdClass|\PiwikTracker $tracker, string $experimentName, string $variation)
+    mixed InnoCraft\Experiments\Experiment::trackVariationActivation(\stdClass|\PiwikTracker $tracker)
 
 Tracks the activation of a variation using for example the Piwik Tracker. This lets Piwik know which variation
 was activated and should be used if you track your application using the Piwik Tracker server side. If you are
@@ -164,19 +164,17 @@ usually tracking using the JavaScript Tracker, have a look at {@link getTracking
 
 
 * Visibility: **public**
-* This method is **static**.
 
 
 #### Arguments
-* $tracker **stdClass|PiwikTracker**
-* $experimentName **string**
-* $variation **string**
+* $tracker **stdClass|PiwikTracker** - &lt;p&gt;The passed object needs to implement a &lt;code&gt;doTrackEvent&lt;/code&gt; method accepting
+three parameters $category, $action, $name&lt;/p&gt;
 
 
 
 ### getTrackingScript
 
-    string InnoCraft\Experiments\Experiment::getTrackingScript(string $experimentName, string $variation)
+    string InnoCraft\Experiments\Experiment::getTrackingScript(string $experimentName, string $variationName)
 
 Returns the JavaScript tracking code that you can echo in your website to let Piwik know which variation was
 activated server side.
@@ -185,11 +183,11 @@ Do not pass variables from $_GET or $_POST etc. Make sure to escape the variable
 to this method as you would otherwise risk an XSS.
 
 * Visibility: **public**
-* This method is **static**.
 
 
 #### Arguments
-* $experimentName **string**
-* $variation **string**
+* $experimentName **string** - &lt;p&gt;ExperimentName and VariationName needs to be passed cause we do not yet have a way
+                               here to properly escape it to prevent XSS.&lt;/p&gt;
+* $variationName **string**
 
 

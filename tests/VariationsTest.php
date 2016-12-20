@@ -2,7 +2,7 @@
 
 use InnoCraft\Experiments\Variations;
 use InnoCraft\Experiments\Variations\StandardVariation;
-use InnoCraft\Experiments\Variations\SplitTestVariation;
+use InnoCraft\Experiments\Variations\UrlRedirectVariation;
 use InnoCraft\Experiments\Variations\CallableVariation;
 
 class CustomVariations extends Variations {
@@ -50,7 +50,7 @@ class VariationsTest extends PHPUnit_Framework_TestCase {
         $this->assertCount(4, $variations);
         $this->assertTrue($variations[0] instanceof StandardVariation);
         $this->assertTrue($variations[1] instanceof StandardVariation);
-        $this->assertTrue($variations[2] instanceof SplitTestVariation);
+        $this->assertTrue($variations[2] instanceof UrlRedirectVariation);
         $this->assertTrue($variations[3] instanceof CallableVariation);
     }
 
@@ -91,7 +91,7 @@ class VariationsTest extends PHPUnit_Framework_TestCase {
         $this->assertSame(2, $variations->getNumVariations());
 
         $allVariations = $variations->getVariations();
-        $this->assertTrue($allVariations[0] instanceof SplitTestVariation);
+        $this->assertTrue($allVariations[0] instanceof UrlRedirectVariation);
         $this->assertSame('variation4', $allVariations[0]->getName());
         $this->assertTrue($allVariations[1] instanceof StandardVariation);
         $this->assertSame('variation5', $allVariations[1]->getName());
@@ -112,7 +112,7 @@ class VariationsTest extends PHPUnit_Framework_TestCase {
         $allVariations = $variations->getVariations();
 
         // verify variation added and converted to VariationInterface
-        $this->assertTrue($allVariations[1] instanceof SplitTestVariation);
+        $this->assertTrue($allVariations[1] instanceof UrlRedirectVariation);
         $this->assertSame('variation4', $allVariations[1]->getName());
 
         // verify old one not removed

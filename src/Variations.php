@@ -10,7 +10,7 @@ namespace InnoCraft\Experiments;
 
 use InvalidArgumentException;
 use InnoCraft\Experiments\Variations\CallableVariation;
-use InnoCraft\Experiments\Variations\SplitTestVariation;
+use InnoCraft\Experiments\Variations\UrlRedirectVariation;
 use InnoCraft\Experiments\Variations\StandardVariation;
 use InnoCraft\Experiments\Variations\VariationInterface;
 
@@ -49,7 +49,7 @@ class Variations {
         if (is_array($variation)) {
             // could be moved to a factory or so
             if (isset($variation['url'])) {
-                $this->variations[] = new SplitTestVariation($this->experimentName, $variation);
+                $this->variations[] = new UrlRedirectVariation($this->experimentName, $variation);
             } elseif (isset($variation['callable'])) {
                 $this->variations[] = new CallableVariation($variation);
             } else {
