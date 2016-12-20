@@ -14,9 +14,12 @@ include_once '../vendor/autoload.php';
 $variations = [['name' => 'green'], ['name' => 'blue']];
 
 $config = [
-    'startDate' => '2017-01-02 03:04:05', // optional, only activate the experiment after this date
-    'endDate' => '2019-01-02 03:04:05', // optional, only activate the experiment before this date
-    'currentDate' => '2018-01-02 03:04:05', // optional, defaults to "now",
+    // optional, only activate the experiment after this date. Instead of a string, a DateTimeInterface can be used.
+    'startDate' => '2017-01-02 03:04:05',
+    // optional, only activate the experiment before this date. Instead of a string, a DateTimeInterface can be used.
+    'endDate' => '2019-01-02 03:04:05',
+    // optional, defaults to "now". Instead of a string, a DateTimeInterface can be used.
+    'currentDate' => '2018-01-02 03:04:05',
 ];
 
 $experiment = new Experiment('experimentName', $variations, $config);
