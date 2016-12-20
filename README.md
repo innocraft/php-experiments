@@ -5,7 +5,7 @@ PHP Experiments is an A/B Test and Split Test library
 
 [![Build Status](https://travis-ci.org/innocraft/php-experiments.svg?branch=master)](https://travis-ci.org/innocraft/php-experiments)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/innocraft/php-experiments.svg)](https://scrutinizer-ci.com/g/innocraft/php-experiments?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/innocraft/php-experiments/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/innocraft/php-experiments/?branch=master "Unit tests code coverage. Does not include coverage of integration tests, system tests or UI screenshot tests.")
+[![Code Coverage](https://scrutinizer-ci.com/g/innocraft/php-experiments/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/innocraft/php-experiments/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/innocraft/php-experiments/v/stable)](https://packagist.org/packages/innocraft/php-experiments)
 [![License](https://poser.pugx.org/innocraft/php-experiments/license)](https://packagist.org/packages/innocraft/php-experiments)
 
