@@ -13,19 +13,6 @@ InnoCraft\Experiments\Filters\CustomFilter
 
 
 
-Properties
-----------
-
-
-### $callback
-
-    private \Callable $callback
-
-
-
-
-
-* Visibility: **private**
 
 
 Methods

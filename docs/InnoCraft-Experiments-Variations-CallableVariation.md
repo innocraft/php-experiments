@@ -14,19 +14,6 @@ InnoCraft\Experiments\Variations\CallableVariation
 
 
 
-Properties
-----------
-
-
-### $variation
-
-    protected array $variation
-
-
-
-
-
-* Visibility: **protected**
 
 
 Methods

@@ -13,21 +13,6 @@ Stores the values in a cookie to make sure on subsequent requests the same varia
 
 
 
-Properties
-----------
-
-
-### $data
-
-    private array $data = array()
-
-This is static in case the same experiment is created several times during one http request
-to make sure we always activate the same variation even within one request
-
-
-
-* Visibility: **private**
-* This property is **static**.
 
 
 Methods
@@ -68,22 +53,5 @@ Methods
 * $namespace **string**
 * $key **string**
 * $value **string|integer**
-
-
-
-### toName
-
-    mixed InnoCraft\Experiments\Storage\Cookie::toName($namespace, $key)
-
-
-
-
-
-* Visibility: **private**
-
-
-#### Arguments
-* $namespace **mixed**
-* $key **mixed**
 
 

@@ -31,52 +31,6 @@ Constants
 
 
 
-Properties
-----------
-
-
-### $name
-
-    private integer $name
-
-
-
-
-
-* Visibility: **private**
-
-
-### $variations
-
-    private \InnoCraft\Experiments\Variations $variations
-
-
-
-
-
-* Visibility: **private**
-
-
-### $filter
-
-    private \InnoCraft\Experiments\Filters\FilterInterface $filter
-
-
-
-
-
-* Visibility: **private**
-
-
-### $storage
-
-    private \InnoCraft\Experiments\Storage\StorageInterface $storage
-
-
-
-
-
-* Visibility: **private**
 
 
 Methods

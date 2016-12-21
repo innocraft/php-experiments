@@ -14,30 +14,6 @@ InnoCraft\Experiments\Variations\SplitTestVariation
 
 
 
-Properties
-----------
-
-
-### $experimentName
-
-    private string $experimentName
-
-
-
-
-
-* Visibility: **private**
-
-
-### $variation
-
-    protected array $variation
-
-
-
-
-
-* Visibility: **protected**
 
 
 Methods

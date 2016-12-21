@@ -13,30 +13,6 @@ InnoCraft\Experiments\Variations
 
 
 
-Properties
-----------
-
-
-### $variations
-
-    private array<mixed,\InnoCraft\Experiments\Variations\VariationInterface> $variations
-
-
-
-
-
-* Visibility: **private**
-
-
-### $experimentName
-
-    private string $experimentName
-
-
-
-
-
-* Visibility: **private**
 
 
 Methods
@@ -101,32 +77,6 @@ Get all set variations.
 
 
 * Visibility: **public**
-
-
-
-
-### getNumVariations
-
-    mixed InnoCraft\Experiments\Variations::getNumVariations()
-
-
-
-
-
-* Visibility: **protected**
-
-
-
-
-### getVariationDefaultPercentage
-
-    mixed InnoCraft\Experiments\Variations::getVariationDefaultPercentage()
-
-
-
-
-
-* Visibility: **protected**
 
 
 
