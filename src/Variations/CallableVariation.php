@@ -17,6 +17,9 @@ class CallableVariation extends StandardVariation {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         $callable = $this->getCallable();

@@ -51,6 +51,9 @@ class SplitTestVariation extends StandardVariation {
         return $url;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         if (!headers_sent()) {
