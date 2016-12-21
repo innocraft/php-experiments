@@ -58,7 +58,7 @@ class SplitTestVariation extends StandardVariation {
             // users app and in worst case people would simply instead see the original version if headers
             // were already sent so should be fine for now
             $url = $this->getUrlWithExperimentParameters();
-            header('Location: ' . $url);
+            header('Location: ' . $url, true, 302);
             exit();
         }
     }
