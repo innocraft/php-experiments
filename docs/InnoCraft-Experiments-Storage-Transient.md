@@ -14,19 +14,6 @@ $data should be static in case the same experiment is created several times duri
 
 
 
-Properties
-----------
-
-
-### $data
-
-    private mixed $data = array()
-
-
-
-
-
-* Visibility: **private**
 
 
 Methods
@@ -67,22 +54,5 @@ Methods
 * $namespace **string**
 * $key **string**
 * $value **string|integer**
-
-
-
-### toName
-
-    mixed InnoCraft\Experiments\Storage\Transient::toName($namespace, $key)
-
-
-
-
-
-* Visibility: **private**
-
-
-#### Arguments
-* $namespace **mixed**
-* $key **mixed**
 
 

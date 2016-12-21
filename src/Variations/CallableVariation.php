@@ -25,7 +25,7 @@ class CallableVariation extends StandardVariation {
         $callable = $this->getCallable();
 
         if (is_callable($callable)) {
-            call_user_func($callable);
+            call_user_func($callable, $this);
         }
     }
 

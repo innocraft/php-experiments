@@ -246,7 +246,8 @@ class ExperimentTest extends PHPUnit_Framework_TestCase {
      */
     public function test_trackVariationActivation_shouldThrowAnException_IfNoTrackerGiven()
     {
-        Experiment::trackVariationActivation($tracker = null, 'myName', 'myVariation');
+        $experiment = $this->makeExperimentThatAlwaysTriggers();
+        $experiment->trackVariationActivation($tracker = null);
     }
 
     /**
@@ -256,7 +257,9 @@ class ExperimentTest extends PHPUnit_Framework_TestCase {
     public function test_trackVariationActivation_shouldThrowAnException_IfTrackerDoesNotImplemntDoTrackEventMethod()
     {
         $tracker = new stdClass();
-        Experiment::trackVariationActivation($tracker, 'myName', 'myVariation');
+
+        $experiment = $this->makeExperimentThatAlwaysTriggers();
+        $experiment->trackVariationActivation($tracker);
     }
 
     public function test_trackVariationActivation_callsDoTrackEventMethod_IfTrackerIsGiven()
@@ -264,15 +267,18 @@ class ExperimentTest extends PHPUnit_Framework_TestCase {
         $tracker = $this->getMockBuilder('MyTracker')->setMethods(['doTrackEvent'])->getMock();
         $tracker->expects($this->once())
             ->method('doTrackEvent')
-            ->with($this->equalTo('abtesting'), $this->equalTo('myName'), $this->equalTo('myVariation'));
+            ->with($this->equalTo('abtesting'), $this->equalTo('myExperiment'), $this->equalTo('myVariation'));
 
-        Experiment::trackVariationActivation($tracker, 'myName', 'myVariation');
+        $experiment = $this->makeExperimentThatAlwaysTriggers([['name' => 'myVariation']]);
+        $experiment->forceVariationName('myVariation');
+        $experiment->trackVariationActivation($tracker);
     }
 
     public function test_getTrackingScript()
     {
-        $script = Experiment::getTrackingScript('myName', 'myVariation');
-        $this->assertSame('<script type="text/javascript">_paq.push(["AbTesting::enter", {experiment: "myName", variation: "myVariation"}]);</script>', $script);
+        $experiment = $this->makeExperimentThatAlwaysTriggers([['name' => 'myVariation']]);
+        $script = $experiment->getTrackingScript($experiment->getExperimentName(), 'myVariation');
+        $this->assertSame('<script type="text/javascript">_paq.push(["AbTesting::enter", {experiment: "myExperiment", variation: "myVariation"}]);</script>', $script);
     }
 
 

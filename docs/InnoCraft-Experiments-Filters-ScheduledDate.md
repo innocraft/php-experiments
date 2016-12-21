@@ -13,41 +13,6 @@ InnoCraft\Experiments\Filters\ScheduledDate
 
 
 
-Properties
-----------
-
-
-### $now
-
-    private \DateTimeInterface $now
-
-
-
-
-
-* Visibility: **private**
-
-
-### $startDate
-
-    private \DateTimeInterface $startDate
-
-
-
-
-
-* Visibility: **private**
-
-
-### $endDate
-
-    private \DateTimeInterface $endDate
-
-
-
-
-
-* Visibility: **private**
 
 
 Methods

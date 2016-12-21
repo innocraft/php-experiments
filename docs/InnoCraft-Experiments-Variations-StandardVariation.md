@@ -13,19 +13,6 @@ InnoCraft\Experiments\Variations\StandardVariation
 
 
 
-Properties
-----------
-
-
-### $variation
-
-    protected array $variation
-
-
-
-
-
-* Visibility: **protected**
 
 
 Methods

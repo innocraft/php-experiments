@@ -31,41 +31,6 @@ Constants
 
 
 
-Properties
-----------
-
-
-### $percentage
-
-    private integer $percentage
-
-
-
-
-
-* Visibility: **private**
-
-
-### $storage
-
-    private  $storage
-
-
-
-
-
-* Visibility: **private**
-
-
-### $experimentName
-
-    private string $experimentName
-
-
-
-
-
-* Visibility: **private**
 
 
 Methods

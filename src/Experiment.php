@@ -195,17 +195,22 @@ class Experiment {
      * was activated and should be used if you track your application using the Piwik Tracker server side. If you are
      * usually tracking using the JavaScript Tracker, have a look at {@link getTrackingScript()}.
      *
-     * @param \stdClass|\PiwikTracker $tracker
-     * @param string $experimentName
-     * @param string $variation
+     * @param \stdClass|\PiwikTracker $tracker   The passed object needs to implement a `doTrackEvent` method accepting
+     *                                           three parameters $category, $action, $name
      */
-    public static function trackVariationActivation($tracker, $experimentName, $variation)
+    public function trackVariationActivation($tracker)
     {
         // we do not use an interface here for simplicity so it is not needed to use an adapter or something
         // for Piwik tracker
         if ($tracker && method_exists($tracker, 'doTrackEvent')) {
+            $variation = $this->getActivatedVariation();
+
+            if ($variation === self::DO_NOT_TRIGGER) {
+                return;
+            }
+
             // eg PiwikTracker
-            $tracker->doTrackEvent('abtesting', $experimentName, $variation);
+            $tracker->doTrackEvent('abtesting', $this->getExperimentName(), $variation->getName());
         } else {
             throw new InvalidArgumentException('The given tracker does not implement the doTrackEvent method');
         }
@@ -218,13 +223,14 @@ class Experiment {
      * Do not pass variables from $_GET or $_POST etc. Make sure to escape the variables before passing them
      * to this method as you would otherwise risk an XSS.
      *
-     * @param string $experimentName
-     * @param string $variation
+     * @param string $experimentName  ExperimentName and VariationName needs to be passed cause we do not yet have a way
+     *                                here to properly escape it to prevent XSS.
+     * @param string $variationName
      * @return string  The Piwik tracking code including the `<script>` elements and _paq.push().
      */
-    public static function getTrackingScript($experimentName, $variation)
+    public function getTrackingScript($experimentName, $variationName)
     {
-        return sprintf('<script type="text/javascript">_paq.push(["AbTesting::enter", {experiment: "%s", variation: "%s"}]);</script>', $experimentName, $variation);
+        return sprintf('<script type="text/javascript">_paq.push(["AbTesting::enter", {experiment: "%s", variation: "%s"}]);</script>', $experimentName, $variationName);
     }
 
 }

@@ -4,7 +4,8 @@
  * a green variation and a blue variation. Each variation will be activated in 33.3% of the time randomly.
  *
  * To see how to allocate different traffic to variations, how to force a variation and more have a look at
- * "ab_test_withConfig.php"
+ * the other examples. If you want to fully customize the behaviour of an experiment, have a look at
+ * "customize_and_extend.php". If you want to perform a split test, have a look at "split_test.php".
  */
 
 date_default_timezone_set('utc');

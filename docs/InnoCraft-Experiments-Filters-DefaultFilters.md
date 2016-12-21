@@ -13,19 +13,6 @@ InnoCraft\Experiments\Filters\DefaultFilters
 
 
 
-Properties
-----------
-
-
-### $filters
-
-    private array<mixed,\InnoCraft\Experiments\Filters\FilterInterface> $filters = array()
-
-
-
-
-
-* Visibility: **private**
 
 
 Methods
@@ -76,24 +63,6 @@ Methods
 
 * Visibility: **public**
 
-
-
-
-### getValueFromConfig
-
-    mixed InnoCraft\Experiments\Filters\DefaultFilters::getValueFromConfig($config, $field, $default)
-
-
-
-
-
-* Visibility: **private**
-
-
-#### Arguments
-* $config **mixed**
-* $field **mixed**
-* $default **mixed**
 
 
 

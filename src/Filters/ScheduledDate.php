@@ -51,13 +51,13 @@ class ScheduledDate implements FilterInterface  {
 
         if ($startDate instanceof DateTimeInterface) {
             $this->startDate = $startDate;
-        } elseif ($startDate) {
+        } elseif ($startDate !== null) {
             $this->startDate = new DateTime($startDate);
         }
 
         if ($endDate instanceof DateTimeInterface) {
             $this->endDate = $endDate;
-        } elseif ($endDate) {
+        } elseif ($endDate !== null) {
             $this->endDate = new DateTime($endDate);
         }
     }
