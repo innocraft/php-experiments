@@ -34,11 +34,17 @@ class StandardVariation implements VariationInterface {
         $this->variation = $variation;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getName()
     {
         return $this->variation['name'];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getPercentage()
     {
         if (isset($this->variation['percentage']) && $this->variation['percentage'] !== false) {
@@ -46,6 +52,9 @@ class StandardVariation implements VariationInterface {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         // we do nothing by default. Usually it is used to get the name of the variation and then do some logic based

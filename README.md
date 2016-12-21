@@ -80,3 +80,12 @@ Instead, you may manually update your require block and run `composer update` if
 
 PHP Experiments is released under the LGPL v3 license, see [LICENSE](LICENSE).
 
+## Developer
+
+### Docs generation
+
+To update the documentation within the docs directory execute the following commands
+
+* `cd docs`
+* `composer install` (only needed once)
+* `./generateDocs.sh`

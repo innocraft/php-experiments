@@ -26,6 +26,12 @@ class Variations {
      */
     private $experimentName;
 
+    /**
+     * Variations constructor.
+     *
+     * @param string $experimentName
+     * @param array|VariationInterface[] $variations
+     */
     public function __construct($experimentName, $variations)
     {
         $this->experimentName = $experimentName;
@@ -34,6 +40,8 @@ class Variations {
     }
 
     /**
+     * Adds a new variation to the set of existing variations.
+     *
      * @param array|VariationInterface $variation
      */
     public function addVariation($variation)
@@ -55,7 +63,9 @@ class Variations {
     }
 
     /**
-     * @param VariationInterface[] $variations
+     * Set (overwrite) all existing variations by the given variations.
+     *
+     * @param array|VariationInterface[] $variations
      */
     public function setVariations($variations)
     {
@@ -68,6 +78,11 @@ class Variations {
         }
     }
 
+    /**
+     * Get all set variations.
+     *
+     * @return VariationInterface[]
+     */
     public function getVariations()
     {
         return $this->variations;
@@ -105,6 +120,9 @@ class Variations {
     }
 
     /**
+     * Chooses randomly a variation from the set of existing variations. Each variation may set a percentage to
+     * allocate more or less traffic to each variation. By default all variation share the traffic equally.
+     *
      * @return VariationInterface|null   null if no variations are set
      */
     public function selectRandomVariation()
@@ -131,6 +149,12 @@ class Variations {
         }
     }
 
+    /**
+     * Detects whether a variation with the given name exists in the pool of set variations.
+     *
+     * @param string $variationName
+     * @return bool
+     */
     public function exists($variationName)
     {
         $variation = $this->get($variationName);
@@ -138,6 +162,13 @@ class Variations {
         return !empty($variation);
     }
 
+    /**
+     * Get the instance of a set variation by its variation name. If no variation matches the given name, null will be
+     * returned.
+     *
+     * @param string $variationName
+     * @return VariationInterface|null
+     */
     public function get($variationName)
     {
         foreach ($this->variations as $variation) {

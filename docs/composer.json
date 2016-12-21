@@ -1,0 +1,6 @@
+{
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "^2.9",
+        "evert/phpdoc-md": "^0.2.0"
+    }
+}
