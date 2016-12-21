@@ -18,9 +18,15 @@ class ScheduledDateTest extends PHPUnit_Framework_TestCase {
      */
     public function test_shouldTrigger_passingDateTime($expectedShouldTrigger, $now, $start, $end, $message)
     {
-        $now = new DateTime($now);
-        $start = new DateTime($start);
-        $end = new DateTime($end);
+        if (isset($now)) {
+            $now = new DateTime($now);
+        }
+        if (isset($start)) {
+            $start = new DateTime($start);
+        }
+        if (isset($end)) {
+            $end = new DateTime($end);
+        }
 
 	    $filter = new ScheduledDate($now, $start, $end);
 	    $this->assertSame($expectedShouldTrigger, $filter->shouldTrigger(), $message);
@@ -38,6 +44,8 @@ class ScheduledDateTest extends PHPUnit_Framework_TestCase {
             array($expected = false, $now = 'now', $start = null, $end = 'yesterday', 'should not trigger when end date is in the past'),
             array($expected = false, $now = 'now', $start = 'tomorrow', $end = 'yesterday', 'should not trigger when start date is in future and end date is in the past'),
             array($expected = true, $now = 'now', $start = 'yesterday', $end = 'tomorrow', 'should trigger when now is between start and end date'),
+            array($expected = true, $now = null, $start = 'yesterday', $end = 'tomorrow', 'should trigger when now is between start and end date, now not specified so it defaults to current date'),
+            array($expected = false, $now = null, $start = 'tomorrow', $end = null, 'fails if now is not specified and defaults to current date and start date is in the future'),
             array($expected = true, $now = $dayEuStart, $start = $dayEuStart, $end = $dayEuEnd, 'should trigger when start date is equal to now, EU dates given'),
             array($expected = true, $now = $dayEuStart, $start = $dayEuStart, $end = $dayEuStart, 'should trigger when end date is equal to now, EU dates given'),
             array($expected = true, $now = $dayEuNow, $start = $dayEuStart, $end = $dayEuEnd, 'should trigger when now is between start and end date, EU dates given'),

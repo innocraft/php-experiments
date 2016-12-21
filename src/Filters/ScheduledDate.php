@@ -43,8 +43,10 @@ class ScheduledDate implements FilterInterface  {
     {
         if ($now instanceof DateTimeInterface) {
             $this->now = $now;
-        } else {
+        } elseif ($now) {
             $this->now = new DateTime($now);
+        } else {
+            $this->now = new DateTime();
         }
 
         if ($startDate instanceof DateTimeInterface) {
