@@ -8,7 +8,7 @@
 
 namespace InnoCraft\Experiments\Variations;
 
-class SplitTestVariation extends StandardVariation {
+class UrlRedirectVariation extends StandardVariation {
 
     /**
      * @var string|int
@@ -16,7 +16,8 @@ class SplitTestVariation extends StandardVariation {
     private $experimentName;
 
     /**
-     * SplitTestVariation constructor.
+     * A variation that can perform a redirect when passing a URL and executing the run method.
+     *
      * @param string|int $experimentName
      * @param array $variation
      */

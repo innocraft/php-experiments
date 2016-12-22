@@ -18,7 +18,7 @@ API Index
             * [Transient](InnoCraft-Experiments-Storage-Transient.md)
         * [Variations](InnoCraft-Experiments-Variations.md)
             * [CallableVariation](InnoCraft-Experiments-Variations-CallableVariation.md)
-            * [SplitTestVariation](InnoCraft-Experiments-Variations-SplitTestVariation.md)
             * [StandardVariation](InnoCraft-Experiments-Variations-StandardVariation.md)
+            * [UrlRedirectVariation](InnoCraft-Experiments-Variations-UrlRedirectVariation.md)
             * [VariationInterface](InnoCraft-Experiments-Variations-VariationInterface.md)
 

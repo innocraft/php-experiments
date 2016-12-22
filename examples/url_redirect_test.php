@@ -3,8 +3,6 @@
  * Example for a very simple split test where we have the original version (added automatically),
  * a layout1 variation and a layout2 variation. Each variation will be activated in 33.3% of the time
  * randomly.
- *
- * To learn more about all the possible configs have a look at "ab_test_withConfig.php".
  */
 
 date_default_timezone_set('utc');

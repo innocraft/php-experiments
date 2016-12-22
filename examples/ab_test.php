@@ -5,7 +5,7 @@
  *
  * To see how to allocate different traffic to variations, how to force a variation and more have a look at
  * the other examples. If you want to fully customize the behaviour of an experiment, have a look at
- * "customize_and_extend.php". If you want to perform a split test, have a look at "split_test.php".
+ * "customize_and_extend.php". If you want to perform a split test, have a look at "url_redirect_test.php".
  */
 
 date_default_timezone_set('utc');

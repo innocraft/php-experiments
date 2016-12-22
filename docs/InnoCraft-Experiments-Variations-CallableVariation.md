@@ -22,9 +22,9 @@ Methods
 
 ### getCallable
 
-    mixed InnoCraft\Experiments\Variations\CallableVariation::getCallable()
+    callable InnoCraft\Experiments\Variations\CallableVariation::getCallable()
 
-
+Returns a callable if the option was passed.
 
 
 
