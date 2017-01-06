@@ -22,9 +22,14 @@ use InnoCraft\Experiments\Variations\StandardVariation;
 class Experiment {
 
     /**
-     * Defines the name of the original version
+     * Defines the name of the original version.
      */
     const ORIGINAL_VARIATION_NAME = 'original';
+
+    /**
+     * Instead of the word 'original', one can also set '0' to mark a variation as the original version.
+     */
+    const ORIGINAL_VARIATION_ID = '0';
 
     /**
      * Is returned by {@link getActivatedVariation()} when no variation should be activated.
@@ -73,7 +78,8 @@ class Experiment {
 
             // in Piwik A/B Testing there is always an original variation, we need to force the existence here.
             // if you do not want to have this behaviour, instead pass an instance of Variations.
-            if (!$this->variations->exists(Experiment::ORIGINAL_VARIATION_NAME)) {
+            if (!$this->variations->exists(Experiment::ORIGINAL_VARIATION_NAME)
+                && !$this->variations->exists(Experiment::ORIGINAL_VARIATION_ID)) {
                 $this->variations->addVariation(new StandardVariation(['name' => Experiment::ORIGINAL_VARIATION_NAME]));
             }
         }

@@ -130,6 +130,19 @@ class ExperimentTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($variations->exists(Experiment::ORIGINAL_VARIATION_NAME));
     }
 
+    public function test_constructor_doesNotAddsOriginalVariation_IfOrignalIdIsAlreadyGiven()
+    {
+        $experiment = $this->makeExperimentThatNeverTriggers($variations = [
+            ['name' => 'variation1'], ['name' => Experiment::ORIGINAL_VARIATION_ID]
+        ]);
+
+        $variations = $experiment->getVariations();
+
+        $this->assertCount(2, $variations->getVariations());
+        $this->assertTrue($variations->get(Experiment::ORIGINAL_VARIATION_ID) instanceof VariationInterface);
+        $this->assertTrue($variations->exists(Experiment::ORIGINAL_VARIATION_ID));
+    }
+
     public function test_getActivatedVariation_shouldReturnNull_IfNoVariationsSet()
     {
         $experiment = $this->makeExperimentThatAlwaysTriggers(new Variations($this->experimentName, []));
