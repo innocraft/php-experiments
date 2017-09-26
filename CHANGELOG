@@ -1,6 +1,10 @@
-1.0.1
+1.0.2
 
 - Use random_int to generate random numbers when possible (PHP 7)
+
+1.0.1
+
+- Renamed SplitTestVariation to RedirectUrlVariation as it is more clear what is meant by it.
 
 1.0.0
 
