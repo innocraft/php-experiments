@@ -1,3 +1,7 @@
+1.0.1
+
+- Use random_int to generate random numbers when possible (PHP 7)
+
 1.0.0
 
 - Initial version

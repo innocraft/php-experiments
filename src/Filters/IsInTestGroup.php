@@ -8,6 +8,7 @@
 
 namespace InnoCraft\Experiments\Filters;
 
+use InnoCraft\Experiments\Experiment;
 use InnoCraft\Experiments\Storage\StorageInterface;
 use InvalidArgumentException;
 
@@ -51,7 +52,7 @@ class IsInTestGroup implements FilterInterface  {
             return !empty($isInGroup);
         }
 
-        $isInGroup = mt_rand(1, self::MAX_PERCENTAGE) <= $this->percentage;
+        $isInGroup = Experiment::getRandomInt(1, self::MAX_PERCENTAGE) <= $this->percentage;
         $this->storage->set(self::STORAGE_NAMESPACE, $this->experimentName, $isInGroup ? 1 : 0);
 
         return $isInGroup;

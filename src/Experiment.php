@@ -15,6 +15,7 @@ use InnoCraft\Experiments\Storage\StorageInterface;
 use InnoCraft\Experiments\Variations\VariationInterface;
 use InvalidArgumentException;
 use InnoCraft\Experiments\Variations\StandardVariation;
+use Exception;
 
 /**
  * Lets you create a new experiment to run an A/B test or a split test.
@@ -239,4 +240,36 @@ class Experiment {
         return sprintf('<script type="text/javascript">_paq.push(["AbTesting::enter", {experiment: "%s", variation: "%s"}]);</script>', $experimentName, $variationName);
     }
 
+    /**
+     * Generates a random integer by using the best method available.
+     *
+     * @param int $min Minimum value
+     * @param int $max Maximum value
+     * @return int|null
+     */
+    public static function getRandomInt($min = 0, $max = 999999)
+    {
+        $val = null;
+
+        if (function_exists('random_int')) {
+            try {
+                if (!isset($max)) {
+                    $max = PHP_INT_MAX;
+                }
+                $val = random_int($min, $max);
+            } catch (Exception $e) {
+                // eg if no crypto source is available
+                $val = null;
+            }
+        }
+
+        if (!isset($val)) {
+            if (function_exists('mt_rand')) {
+                $val = mt_rand($min, $max);
+            } else {
+                $val = rand($min, $max);
+            }
+        }
+        return $val;
+    }
 }
