@@ -294,5 +294,16 @@ class ExperimentTest extends PHPUnit_Framework_TestCase {
         $this->assertSame('<script type="text/javascript">_paq.push(["AbTesting::enter", {experiment: "myExperiment", variation: "myVariation"}]);</script>', $script);
     }
 
+    public function test_getRandomInt()
+    {
+        for ($i = 0; $i < 100; $i++) {
+            $val = Experiment::getRandomInt(1, 2);
+            $this->assertLessThanOrEqual(2, $val);
+            $this->assertGreaterThanOrEqual(1, $val);
 
+            $val = Experiment::getRandomInt(0, 99);
+            $this->assertLessThanOrEqual(99, $val);
+            $this->assertGreaterThanOrEqual(0, $val);
+        }
+    }
 }

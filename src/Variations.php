@@ -142,7 +142,7 @@ class Variations {
                 }
             }
 
-            $index = mt_rand(0, count($indexes) - 1);
+            $index = Experiment::getRandomInt(0, count($indexes) - 1);
             $variationIndex = $indexes[$index];
 
             return $this->variations[$variationIndex];
