@@ -152,7 +152,7 @@ class Experiment {
 
         $variationName = $this->storage->get('experiment', $this->name);
 
-        if ($variationName && $this->variations->exists($variationName)) {
+        if (($variationName || $variationName === '0' || $variationName === 0) && $this->variations->exists($variationName)) {
             return $this->variations->get($variationName);
         }
 
