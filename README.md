@@ -11,9 +11,9 @@ PHP Experiments is an A/B Test and Split Test library
 
 ## Introduction 
 
-PHP Experiments is built for [A/B and Split Testing for Piwik Analytics](https://www.ab-tests.net) but can be used in any 
-PHP project. [Piwik](https://piwik.org) is the leading open source web analytics platform used on over 1 million 
-websites and apps in over 150 countries. [InnoCraft](https://www.innocraft.com) is the company of the makers of Piwik Analytics.
+PHP Experiments is built for [A/B and Split Testing for Matomo Analytics](https://www.ab-tests.net) but can be used in any 
+PHP project. [Matomo (formerly Piwik)](https://matomo.org) is the leading open source web analytics platform used on over 1 million 
+websites and apps in over 150 countries. [InnoCraft](https://www.innocraft.com) is the company of the makers of Matomo Analytics.
 
 ## Features
 
