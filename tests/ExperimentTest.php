@@ -291,7 +291,7 @@ class ExperimentTest extends PHPUnit_Framework_TestCase {
     {
         $experiment = $this->makeExperimentThatAlwaysTriggers([['name' => 'myVariation']]);
         $script = $experiment->getTrackingScript($experiment->getExperimentName(), 'myVariation');
-        $this->assertSame('<script type="text/javascript">_paq.push(["AbTesting::enter", {experiment: "myExperiment", variation: "myVariation"}]);</script>', $script);
+        $this->assertSame('<script type="text/javascript">window._paq = window._paq || []; window._paq.push(["AbTesting::enter", {experiment: "myExperiment", variation: "myVariation"}]);</script>', $script);
     }
 
     public function test_getRandomInt()
