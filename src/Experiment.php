@@ -237,7 +237,7 @@ class Experiment {
      */
     public function getTrackingScript($experimentName, $variationName)
     {
-        return sprintf('<script type="text/javascript">_paq.push(["AbTesting::enter", {experiment: "%s", variation: "%s"}]);</script>', $experimentName, $variationName);
+        return sprintf('<script type="text/javascript">window._paq = window._paq || []; window._paq.push(["AbTesting::enter", {experiment: "%s", variation: "%s"}]);</script>', $experimentName, $variationName);
     }
 
     /**
