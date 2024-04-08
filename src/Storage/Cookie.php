@@ -40,7 +40,7 @@ class Cookie implements StorageInterface {
         if (!headers_sent()) {
             // we do not throw an exception for now when headers already sent to not break the application
             // but could do later to make users aware there is an error
-            setcookie($name, $value, time() + (86400 * 365 * 2), $path = '/', $domain = null, $secure = null, $httpOnly = true);
+            setcookie($name, $value, time() + (86400 * 365 * 2), $path = '/', $domain = '', $secure = false, $httpOnly = true);
         }
     }
 
