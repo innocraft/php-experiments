@@ -1,3 +1,6 @@
+1.0.3
+- Better compatibility with PHP 8.1
+
 1.0.2
 
 - Use random_int to generate random numbers when possible (PHP 7)
