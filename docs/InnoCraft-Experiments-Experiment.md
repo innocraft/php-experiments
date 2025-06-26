@@ -49,7 +49,7 @@ Creates a new experiment
 
 
 #### Arguments
-* $experimentNameOrId **string** - &lt;p&gt;Can be any experiment name or an id of the experiment (eg as given by A/B Testing for Piwik)&lt;/p&gt;
+* $experimentNameOrId **string** - &lt;p&gt;Can be any experiment name or an id of the experiment (eg as given by A/B Testing for Matomo)&lt;/p&gt;
 * $variations **array|array&lt;mixed,\InnoCraft\Experiments\Variations\VariationInterface&gt;**
 * $config **array**
 
@@ -157,8 +157,8 @@ Get the set storage.
 
     mixed InnoCraft\Experiments\Experiment::trackVariationActivation(\stdClass|\PiwikTracker $tracker)
 
-Tracks the activation of a variation using for example the Piwik Tracker. This lets Piwik know which variation
-was activated and should be used if you track your application using the Piwik Tracker server side. If you are
+Tracks the activation of a variation using for example the Matomo Tracker. This lets Matomo know which variation
+was activated and should be used if you track your application using the Matomo Tracker server side. If you are
 usually tracking using the JavaScript Tracker, have a look at {@link getTrackingScript()}.
 
 
@@ -176,7 +176,7 @@ three parameters $category, $action, $name&lt;/p&gt;
 
     string InnoCraft\Experiments\Experiment::getTrackingScript(string $experimentName, string $variationName)
 
-Returns the JavaScript tracking code that you can echo in your website to let Piwik know which variation was
+Returns the JavaScript tracking code that you can echo in your website to let Matomo know which variation was
 activated server side.
 
 Do not pass variables from $_GET or $_POST etc. Make sure to escape the variables before passing them
